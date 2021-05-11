@@ -5,4 +5,4 @@ IDs:
 205492671
 308546167
 
-We suggest that in order to complete the entire project, we would need approximately  40 hours.
+We suggest that in order to complete the entire project, we would need approximately  45 hours.
