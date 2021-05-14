@@ -196,7 +196,7 @@
   <h4><a href="#Coach">Coach</a></h4>
   <ul>
   <li><a href="#coachPagecoachIdGet"><code><span class="http-method">get</span> /coach/page{coach_id}</code></a></li>
-  <li><a href="#coachSearchcoachNameGet"><code><span class="http-method">get</span> /coach/search{coach_name}</code></a></li>
+  <li><a href="#coachSearchGet"><code><span class="http-method">get</span> /coach/search</code></a></li>
   </ul>
   <h4><a href="#League">League</a></h4>
   <ul>
@@ -206,12 +206,12 @@
   <h4><a href="#Player">Player</a></h4>
   <ul>
   <li><a href="#playerPageplayerIdGet"><code><span class="http-method">get</span> /player/page{player_id}</code></a></li>
-  <li><a href="#playerSearchplayerNameGet"><code><span class="http-method">get</span> /player/search{player_name}</code></a></li>
+  <li><a href="#playerSearchGet"><code><span class="http-method">get</span> /player/search</code></a></li>
   </ul>
   <h4><a href="#Team">Team</a></h4>
   <ul>
   <li><a href="#teamPageteamIdGet"><code><span class="http-method">get</span> /team/page{team_id}</code></a></li>
-  <li><a href="#teamSearchteamNameGet"><code><span class="http-method">get</span> /team/search{team_name}</code></a></li>
+  <li><a href="#teamSearchGet"><code><span class="http-method">get</span> /team/search</code></a></li>
   </ul>
   <h4><a href="#User">User</a></h4>
   <ul>
@@ -281,22 +281,28 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="coachSearchcoachNameGet"></a>
+  <div class="method"><a name="coachSearchGet"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /coach/search{coach_name}</code></pre></div>
-    <div class="method-summary">search coach by name (<span class="nickname">coachSearchcoachNameGet</span>)</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /coach/search</code></pre></div>
+    <div class="method-summary">search coach by name (<span class="nickname">coachSearchGet</span>)</div>
     <div class="method-notes">returns a json object with a list of coaches with the given name</div>
 
-    <h3 class="field-label">Path parameters</h3>
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">coach_name (required)</div>
       
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
-
-
-
-
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The coach&#x27;s full/partial name </div>      <div class="param">sorted (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of sort (by team name/by coach name), if none present then won&#x27;t sort </div>      <div class="param">filtered_by (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of filter (by coach_position or by team_name) </div>      <div class="param">filter (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The value to filter </div>    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
@@ -502,22 +508,28 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="playerSearchplayerNameGet"></a>
+  <div class="method"><a name="playerSearchGet"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /player/search{player_name}</code></pre></div>
-    <div class="method-summary">search player by name (<span class="nickname">playerSearchplayerNameGet</span>)</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /player/search</code></pre></div>
+    <div class="method-summary">search player by name (<span class="nickname">playerSearchGet</span>)</div>
     <div class="method-notes">returns a json object with a list of players with the given name</div>
 
-    <h3 class="field-label">Path parameters</h3>
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">player_name (required)</div>
       
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
-
-
-
-
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Player full/partial name </div>      <div class="param">sorted (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of sort (by team name/by player name), if none present then won&#x27;t sort </div>      <div class="param">filtered_by (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of filter (by player position or by team name) </div>      <div class="param">filter (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The value to filter </div>    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
@@ -641,22 +653,24 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="teamSearchteamNameGet"></a>
+  <div class="method"><a name="teamSearchGet"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /team/search{team_name}</code></pre></div>
-    <div class="method-summary">search team by name (<span class="nickname">teamSearchteamNameGet</span>)</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /team/search</code></pre></div>
+    <div class="method-summary">search team by name (<span class="nickname">teamSearchGet</span>)</div>
     <div class="method-notes">returns a json object with a list of teams with the given name</div>
 
-    <h3 class="field-label">Path parameters</h3>
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
       <div class="param">team_name (required)</div>
       
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
-
-
-
-
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">sorted (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of sort (&#x27;True&#x27;/&#x27;False&#x27;) if &#x27;Fasle&#x27; present then won&#x27;t sort </div>    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
