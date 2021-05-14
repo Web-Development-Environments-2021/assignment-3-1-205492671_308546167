@@ -10,6 +10,8 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
+- url: https://virtserver.swaggerhub.com/Naorsu/soccerAPI/1.0.0
+  description: SwaggerHub API Auto Mocking
 - url: https://virtserver.swaggerhub.com/Naorsu/lab6/1.0.0
   description: SwaggerHub API Auto Mocking
 paths:
@@ -283,7 +285,7 @@ paths:
                 $ref: '#/components/schemas/inline_response_200_1'
         "400":
           description: didnt find avilable data on league
-  /player/search{player_name}:
+  /player/search:
     get:
       tags:
       - player
@@ -291,12 +293,41 @@ paths:
       description: returns a json object with a list of players with the given name
       parameters:
       - name: player_name
-        in: path
+        in: query
+        description: Player full/partial name
         required: true
-        style: simple
-        explode: false
+        style: form
+        explode: true
         schema:
           type: string
+        example: Lionel Messi
+      - name: sorted
+        in: query
+        description: The type of sort (by team name/by player name), if none present then won't sort
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Messi
+      - name: filtered_by
+        in: query
+        description: The type of filter (by player position or by team name)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: position
+      - name: filter
+        in: query
+        description: The value to filter
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: goalkeeper
       responses:
         "200":
           description: returns a json object with a list of players with the given name
@@ -306,7 +337,7 @@ paths:
                 $ref: '#/components/schemas/inline_response_200_2'
         "404":
           description: player_name not found
-  /coach/search{coach_name}:
+  /coach/search:
     get:
       tags:
       - coach
@@ -314,12 +345,40 @@ paths:
       description: returns a json object with a list of coaches with the given name
       parameters:
       - name: coach_name
-        in: path
+        in: query
+        description: The coach's full/partial name
         required: true
-        style: simple
-        explode: false
+        style: form
+        explode: true
         schema:
           type: string
+      - name: sorted
+        in: query
+        description: The type of sort (by team name/by coach name), if none present then won't sort
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Grant
+      - name: filtered_by
+        in: query
+        description: The type of filter (by coach_position or by team_name)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: team_name
+      - name: filter
+        in: query
+        description: The value to filter
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Maccabi Haifa
       responses:
         "200":
           description: returns a json object with a list of coaches with the given name
@@ -329,7 +388,7 @@ paths:
                 $ref: '#/components/schemas/inline_response_200_3'
         "404":
           description: coach_name not found
-  /team/search{team_name}:
+  /team/search:
     get:
       tags:
       - team
@@ -337,12 +396,21 @@ paths:
       description: returns a json object with a list of teams with the given name
       parameters:
       - name: team_name
-        in: path
+        in: query
         required: true
-        style: simple
-        explode: false
+        style: form
+        explode: true
         schema:
           type: string
+      - name: sorted
+        in: query
+        description: The type of sort ('True'/'False') if 'Fasle' present then won't sort
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: "True"
       responses:
         "200":
           description: returns a json object with a list of teams with the given name
